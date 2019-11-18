@@ -1,12 +1,15 @@
 package com.example.dblearning;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.dblearning.assets.adapter.MateriAdapter;
@@ -75,6 +78,14 @@ public class MateriActivity extends AppCompatActivity {
     }
 
     private void initComponent() {
+        //init toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Materi");
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar()!=null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
         rvMateri.setLayoutManager(new LinearLayoutManager(context));
         swipMateri.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -83,5 +94,13 @@ public class MateriActivity extends AppCompatActivity {
             }
         });
         rvMateri.setHasFixedSize(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -29,7 +29,6 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(int_tentang);
             }
         });
-//andri ngasih contoh
         btn_materi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

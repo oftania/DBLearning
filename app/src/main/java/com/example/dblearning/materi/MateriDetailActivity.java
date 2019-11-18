@@ -1,6 +1,8 @@
 package com.example.dblearning.materi;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,6 +11,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.webkit.URLUtil;
 import android.widget.MediaController;
 import android.widget.TextView;
@@ -26,8 +29,6 @@ public class MateriDetailActivity extends AppCompatActivity {
     private Context context;
     @BindView(R.id.video_player)
     VideoView videoPlayer;
-    @BindView(R.id.tv_judul)
-    TextView tvJudul;
     @BindView(R.id.tv_deskripsi)
     TextView tvDeskripsi;
     private Materi data;
@@ -139,7 +140,13 @@ public class MateriDetailActivity extends AppCompatActivity {
         }
         //set up title and desc
         assert data != null;
-        tvJudul.setText(""+data.getJudul());
+        //init toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(data.getJudul());
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar()!=null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         tvDeskripsi.setText(""+data.getDeskripsi());
         // Set up the media controller widget and attach it to the video view.
         MediaController controller = new MediaController(context);
@@ -156,5 +163,13 @@ public class MateriDetailActivity extends AppCompatActivity {
             Toast.makeText(context, "video tidak ditemukan", Toast.LENGTH_SHORT).show();
             return Uri.parse(mediaName);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
