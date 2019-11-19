@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".quiz.KunciJawabanActivity"></activity>
+        <activity android:name=".quiz.HasilPraktikumActivity"></activity>
+        <activity android:name=".quiz.KunciJawabanActivity" />
         <activity android:name=".quiz.LihatHasilActivity" />
         <activity android:name=".QuizActivity" />
         <activity android:name=".materi.MateriDetailActivity" />

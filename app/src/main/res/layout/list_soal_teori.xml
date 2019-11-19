@@ -36,7 +36,8 @@
             android:numColumns="1"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:alignmentMode="alignMargins" />
+            android:alignmentMode="alignMargins"
+            android:orientation="vertical" />
     </LinearLayout>
 
 </LinearLayout>
