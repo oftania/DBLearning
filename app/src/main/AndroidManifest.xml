@@ -2,18 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.dblearning">
+
     <uses-permission android:name="android.permission.INTERNET" />
-<!--    large heap untuk open image size besar-->
+
     <application
-        android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@drawable/loading_image"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:largeHeap="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
+        <activity android:name=".quiz.KunciJawabanActivity"></activity>
+        <activity android:name=".quiz.LihatHasilActivity" />
         <activity android:name=".QuizActivity" />
         <activity android:name=".materi.MateriDetailActivity" />
         <activity android:name=".MateriActivity" />

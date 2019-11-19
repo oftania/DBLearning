@@ -1,0 +1,45 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "f4d8e426b2d0718be79435d9b3513dc9",
+    "entities": [
+      {
+        "tableName": "TablePraktikum",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPraktikum` INTEGER NOT NULL, `butir_soal` TEXT, `jawaban` TEXT, PRIMARY KEY(`idPraktikum`))",
+        "fields": [
+          {
+            "fieldPath": "idPraktikum",
+            "columnName": "idPraktikum",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "butir_soal",
+            "columnName": "butir_soal",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "jawaban",
+            "columnName": "jawaban",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idPraktikum"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"f4d8e426b2d0718be79435d9b3513dc9\")"
+    ]
+  }
+}

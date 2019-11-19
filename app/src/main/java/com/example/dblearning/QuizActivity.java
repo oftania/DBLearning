@@ -1,9 +1,12 @@
 package com.example.dblearning;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.example.dblearning.assets.CustomViewPager;
 import com.example.dblearning.assets.adapter.QuizTabsAdapter;
@@ -29,6 +32,13 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void initComponent() {
+        //init toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Latihan");
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar()!=null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         tabLayout.addTab(tabLayout.newTab().setText("Teori"));
         tabLayout.addTab(tabLayout.newTab().setText("Praktikum"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -52,5 +62,12 @@ public class QuizActivity extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

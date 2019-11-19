@@ -2,14 +2,14 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#9CD1F1</color>
     <color name="colorNavigationIcon">#dae9f6</color>
     <color name="colorNavigationText">#ffffff</color>
 
     <color name="blue_custom">#9CD1F1</color>
     <color name="black">#000</color>
     <color name="whitetransparent">#8EE8E8E8</color>
-    <color name="tranparent">#25000000</color>
+    <color name="tranparent">#00000000</color>
     <color name="white">#FFFFFF</color>
     <color name="dot_dark_screen">#FFFFF0</color>
     <color name="dot_light_screen">#a9a9a9</color>

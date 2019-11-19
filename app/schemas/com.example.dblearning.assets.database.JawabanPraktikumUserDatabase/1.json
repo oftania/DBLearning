@@ -1,0 +1,45 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "9aebe066ab725d0582998d5fe6d02fcb",
+    "entities": [
+      {
+        "tableName": "TableJawabanPraktikum",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idJawabanPraktikumUser` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `jawabanUser` TEXT, `soalId` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "idJawabanPraktikumUser",
+            "columnName": "idJawabanPraktikumUser",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "jawabanUser",
+            "columnName": "jawabanUser",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "soalId",
+            "columnName": "soalId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idJawabanPraktikumUser"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"9aebe066ab725d0582998d5fe6d02fcb\")"
+    ]
+  }
+}
