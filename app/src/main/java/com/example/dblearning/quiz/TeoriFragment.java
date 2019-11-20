@@ -1,6 +1,7 @@
 package com.example.dblearning.quiz;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -90,6 +91,7 @@ public class TeoriFragment extends Fragment {
         checkCompleteQuiz();
     }
 
+    @SuppressLint("SetTextI18n")
     private void checkCompleteQuiz() {
         if (!prefManager.checkFInishLatihan()){
             btnUlangi.setVisibility(View.GONE);
@@ -109,6 +111,7 @@ public class TeoriFragment extends Fragment {
             public void onResponse(@NotNull Call<ResponSoalTeori> call, @NotNull Response<ResponSoalTeori> response) {
                 if (response.isSuccessful()){
                     try{
+                        assert response.body() != null;
                         if (response.body().isStatus()){
                             //inset into database
                             //insert soal
@@ -157,32 +160,23 @@ public class TeoriFragment extends Fragment {
                 jawabanTeoriUserDatabase);
         rvTeori.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
-        rvTeori.post(new Runnable() {
-            @Override
-            public void run() {
-                mAdapter.notifyDataSetChanged();
-                swipTeori.setRefreshing(false);
+        rvTeori.post(() -> {
+            mAdapter.notifyDataSetChanged();
+            swipTeori.setRefreshing(false);
+        });
+        btnLihatHasil.setOnClickListener(v -> {
+            if (jawabanTeoriUserDatabase.jawabanTeoriUserDAO().getTotalJawabanTeoriUser()==teoriDatabase.teoriDAO().getTotal()){
+                prefManager.simpanJawabanTeori();
+                startActivity(new Intent(context,LihatHasilActivity.class));
+            }else{
+                Toast.makeText(context, "Anda Harus menyelesaikan latihan, sebelum menyimpan jawaban..", Toast.LENGTH_SHORT).show();
             }
         });
-        btnLihatHasil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (jawabanTeoriUserDatabase.jawabanTeoriUserDAO().getTotalJawabanTeoriUser()==teoriDatabase.teoriDAO().getTotal()){
-                    prefManager.simpanJawabanTeori();
-                    startActivity(new Intent(context,LihatHasilActivity.class));
-                }else{
-                    Toast.makeText(context, "Anda Harus menyelesaikan latihan, sebelum menyimpan jawaban..", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-        btnUlangi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (jawabanTeoriUserDatabase.jawabanTeoriUserDAO().getTotalJawabanTeoriUser()==teoriDatabase.teoriDAO().getTotal()){
-                    resetALLData();
-                }else{
-                    Toast.makeText(context, "Anda Harus menyelesaikan latihan sebelum memulai baru..", Toast.LENGTH_SHORT).show();
-                }
+        btnUlangi.setOnClickListener(v -> {
+            if (jawabanTeoriUserDatabase.jawabanTeoriUserDAO().getTotalJawabanTeoriUser()==teoriDatabase.teoriDAO().getTotal()){
+                resetALLData();
+            }else{
+                Toast.makeText(context, "Anda Harus menyelesaikan latihan sebelum memulai baru..", Toast.LENGTH_SHORT).show();
             }
         });
     }

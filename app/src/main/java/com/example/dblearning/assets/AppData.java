@@ -5,7 +5,7 @@ public class AppData {
     public static final String URL = "http://"+IP+"/api/";
     public static final String URL_VIDEO = "http://"+IP+"/assets/materi/";
 
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
 
     public static final String TOTAL_TEORI = "3";
     public static final String TOTAL_PRAKTIKUM = "3";

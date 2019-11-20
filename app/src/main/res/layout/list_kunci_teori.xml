@@ -10,8 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0."
-        android:layout_margin="5dp"
         android:textSize="15sp"
+        android:layout_margin="5dp"
         android:textColor="@color/black"
         tools:ignore="HardcodedText" />
     <LinearLayout
@@ -25,9 +25,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="soal"
-            android:layout_margin="5dp"
             android:textColor="@color/black"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:layout_margin="5dp"
+            tools:ignore="HardcodedText" />
         <LinearLayout
             android:id="@+id/layout_jawaban"
             android:layout_width="match_parent"
