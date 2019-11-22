@@ -11,6 +11,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/pengembang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="Pengembang :"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/pengembang1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:layout_alignTop="@+id/pengembang"
+            android:text="Ashilah Cindy Puspita"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/pengembang2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_alignTop="@+id/pengembang1"
+            android:text=" Brian Sandi Ivanov"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/pengembang3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_alignTop="@+id/pengembang2"
+            android:text="Olivia Fioren Tania"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:textAlignment="center"/>
+        <TextView
             android:id="@+id/dlearning"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

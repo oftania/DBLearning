@@ -3,12 +3,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".informasi.InformasiFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/ic_ki"
+                android:layout_weight="5"/>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="65dp"
+                android:layout_marginLeft="50dp"
+                android:layout_weight="5">
+                <TextView
+                    android:id="@+id/ki"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kompetensi Inti"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/ki3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ki"
+                    android:textSize="18dp"
+                    android:text="KI 3 : Pengetahuan "/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ki3"
+                    android:textSize="18dp"
+                    android:text="KI 4 : Keterampilan"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/ic_kd"
+                android:layout_weight="5"/>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="5">
+                <TextView
+                    android:id="@+id/kd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kompetensi Dasar"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/kd3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/kd"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18dp"
+                    android:text="KD 3.4 : Memahami kelompok perintah yang termasuk dalam DDL, DML dan DCL dalam basis data  "/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/kd3"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18dp"
+                    android:text="KD 4.4 : Membuat kelompok perintah yang termasuk dalam DDL, DML dan DCL dalam basis data "/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

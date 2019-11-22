@@ -6,9 +6,143 @@
     tools:context=".informasi.BantuanFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/materi_resize"
+                android:layout_weight="5"/>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="5">
+                <TextView
+                    android:id="@+id/materi"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Materi"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/kd3"
+                    android:layout_marginTop="30dp"
+                    android:textSize="18dp"
+                    android:text="Materi merupakan fitur untuk membaca materi-materi tentang DDL, DML, dan DCL"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/latihan_resize"
+                android:layout_weight="5"/>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="5">
+                <TextView
+                    android:id="@+id/latihan"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Latihan"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/kd3"
+                    android:layout_marginTop="30dp"
+                    android:textSize="18dp"
+                    android:text="Latihan merupakan fitur kumpulan soal, dimana terdapat materi soal teori dan praktikum"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/bantuan_resize"
+                android:layout_weight="5"/>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="5">
+                <TextView
+                    android:id="@+id/bantuan"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bantuan"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/kd3"
+                    android:layout_marginTop="30dp"
+                    android:textSize="18dp"
+                    android:text="Fitur bantuan merupakan fitur yang menyediakan informasi mengenai materi dan aplikasi DBLearning"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/tentang_resize"
+                android:layout_weight="5"/>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="5">
+                <TextView
+                    android:id="@+id/tentang"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tentang"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/kd3"
+                    android:layout_marginTop="30dp"
+                    android:textSize="18dp"
+                    android:text="Tentang merupakan fitur informasi pengembangan aplikasi DBLearning"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
 
 </FrameLayout>
