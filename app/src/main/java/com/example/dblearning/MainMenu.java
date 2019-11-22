@@ -29,16 +29,25 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(int_tentang);
             }
         });
+
         btn_materi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainMenu.this,MateriActivity.class));
             }
         });
+
         btn_latihan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainMenu.this,QuizActivity.class));
+            }
+        });
+
+        btn_bantuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainMenu.this,Informasi.class));
             }
         });
     }
