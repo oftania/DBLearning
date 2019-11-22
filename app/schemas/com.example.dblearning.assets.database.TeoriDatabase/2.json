@@ -1,0 +1,39 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "f5914f24df406399dfdfb6230dcb9668",
+    "entities": [
+      {
+        "tableName": "TableTeori",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idTeori` INTEGER NOT NULL, `butir_soal` TEXT, PRIMARY KEY(`idTeori`))",
+        "fields": [
+          {
+            "fieldPath": "idTeori",
+            "columnName": "idTeori",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "butir_soal",
+            "columnName": "butir_soal",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idTeori"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"f5914f24df406399dfdfb6230dcb9668\")"
+    ]
+  }
+}

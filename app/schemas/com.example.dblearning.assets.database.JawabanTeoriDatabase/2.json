@@ -1,0 +1,51 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "a1cbe393daf2f10768c058c6052e7a52",
+    "entities": [
+      {
+        "tableName": "TableJawabanTeori",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idJawabanTeori` INTEGER NOT NULL, `jawaban` TEXT, `bankSoalId` INTEGER NOT NULL, `statusJawaban` INTEGER NOT NULL, PRIMARY KEY(`idJawabanTeori`))",
+        "fields": [
+          {
+            "fieldPath": "idJawabanTeori",
+            "columnName": "idJawabanTeori",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "jawaban",
+            "columnName": "jawaban",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "bankSoalId",
+            "columnName": "bankSoalId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "statusJawaban",
+            "columnName": "statusJawaban",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idJawabanTeori"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"a1cbe393daf2f10768c058c6052e7a52\")"
+    ]
+  }
+}

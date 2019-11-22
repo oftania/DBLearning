@@ -1,20 +1,23 @@
 package com.example.dblearning.assets.database.model;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 @Entity(tableName = "TablePraktikum")
 public class TablePraktikum {
-    @NonNull
     @PrimaryKey()
     private int idPraktikum;
     private String butir_soal;
     private String jawaban;
+    @Nullable
+    private String jawabanUser;
 
-    public TablePraktikum(int idPraktikum, String butir_soal, String jawaban) {
+    public TablePraktikum(int idPraktikum, String butir_soal, String jawaban, @Nullable String jawabanUser) {
         this.idPraktikum = idPraktikum;
         this.butir_soal = butir_soal;
         this.jawaban = jawaban;
+        this.jawabanUser = jawabanUser;
     }
 
     public int getIdPraktikum() {
@@ -39,5 +42,14 @@ public class TablePraktikum {
 
     public void setJawaban(String jawaban) {
         this.jawaban = jawaban;
+    }
+
+    @Nullable
+    public String getJawabanUser() {
+        return jawabanUser;
+    }
+
+    public void setJawabanUser(@Nullable String jawabanUser) {
+        this.jawabanUser = jawabanUser;
     }
 }

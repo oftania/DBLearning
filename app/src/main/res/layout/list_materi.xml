@@ -23,9 +23,11 @@
             android:layout_height="wrap_content"
             android:text="title"
             android:padding="10dp"
+            android:textColor="@color/black"
             android:maxLines="1"
             android:ellipsize="end"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -38,6 +40,7 @@
             android:layout_height="wrap_content"
             android:text="Deskripsi"
             android:textSize="14sp"
+            android:textColor="@color/black"
             android:padding="10dp"
             android:maxLines="3"
             android:ellipsize="end"
