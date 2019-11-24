@@ -93,7 +93,7 @@ public class SoalPraktikumAdapter extends RecyclerView.Adapter<SoalPraktikumAdap
         EditText edtJawabanSalah = dialog.findViewById(R.id.edt_jawaban_salah);
         TextView tvBenar = dialog.findViewById(R.id.tv_benar);
         EditText edtJawabanBenar = dialog.findViewById(R.id.edt_jawaban_benar);
-        if (data.getJawabanUser() != null && data.getJawabanUser().equals(data.getJawaban())){
+        if (data.getJawabanUser() != null && data.getJawabanUser().toLowerCase().equals(data.getJawaban().toLowerCase())){
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 cvHasil.setCardBackgroundColor(context.getColor(R.color.benar));
             }else{
