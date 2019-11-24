@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -133,9 +132,7 @@ public class PraktikumFragment extends Fragment {
         mAdapter = new SoalPraktikumAdapter(context,praktikumDatabase.praktikumDAO().getAllPraktikum(),praktikumDatabase,this);
         rvPraktikum.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
-        rvPraktikum.post(() -> {
-            mAdapter.notifyDataSetChanged();
-        });
+        rvPraktikum.post(() -> mAdapter.notifyDataSetChanged());
         //check total data
         if (praktikumDatabase.praktikumDAO().getTotalPraktikum()==praktikumDatabase.praktikumDAO().getTotalPraktikumTerjawab()){
             btnUlangi.setVisibility(View.VISIBLE);

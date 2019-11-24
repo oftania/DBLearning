@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/swip_praktikum"
     tools:context=".quiz.PraktikumFragment">
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,7 +38,8 @@
                 android:text="Ulangi Praktikum"
                 android:padding="10dp"
                 android:layout_gravity="center"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                tools:ignore="HardcodedText" />
 
         </androidx.cardview.widget.CardView>
     </LinearLayout>

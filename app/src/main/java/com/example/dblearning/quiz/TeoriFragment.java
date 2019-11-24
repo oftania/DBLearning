@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,12 +46,13 @@ import retrofit2.Response;
 public class TeoriFragment extends Fragment {
     private Context context;
     private View rootView;
-    private SwipeRefreshLayout swipTeori;
+
     private RecyclerView rvTeori;
     private RecyclerView.Adapter mAdapter;
     private ApiServices apiServices = ApiUtils.getApiServices();
     private CardView btnUlangi,btnLihatHasil;
     private TextView tvLihatHasil;
+    //database
     private TeoriDatabase teoriDatabase;
     private JawabanTeoriDatabase jawabanTeoriDatabase;
     private JawabanTeoriUserDatabase jawabanTeoriUserDatabase;
@@ -105,7 +105,6 @@ public class TeoriFragment extends Fragment {
     }
 
     private void getDataFromApi() {
-        swipTeori.setRefreshing(true);
         apiServices.getSoalTeori(AppData.TOTAL_TEORI).enqueue(new Callback<ResponSoalTeori>() {
             @Override
             public void onResponse(@NotNull Call<ResponSoalTeori> call, @NotNull Response<ResponSoalTeori> response) {
@@ -133,26 +132,22 @@ public class TeoriFragment extends Fragment {
                             Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }catch (Exception e){
-                        swipTeori.setRefreshing(false);
                         e.printStackTrace();
                         Toast.makeText(context, "terjadi kesalahan pada aplikasi", Toast.LENGTH_SHORT).show();
                     }
                 }else{
                     Toast.makeText(context, "Gagal terhubung ke server", Toast.LENGTH_SHORT).show();
-                    swipTeori.setRefreshing(false);
                 }
             }
 
             @Override
             public void onFailure(@NotNull Call<ResponSoalTeori> call, @NotNull Throwable t) {
                 t.printStackTrace();
-                swipTeori.setRefreshing(false);
             }
         });
     }
 
     private void loadDatabaseData() {
-        swipTeori.setRefreshing(true);
         mAdapter = new SoalTeoriAdapter(
                 context,
                 teoriDatabase.teoriDAO().getAllTeori(),
@@ -160,10 +155,7 @@ public class TeoriFragment extends Fragment {
                 jawabanTeoriUserDatabase);
         rvTeori.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
-        rvTeori.post(() -> {
-            mAdapter.notifyDataSetChanged();
-            swipTeori.setRefreshing(false);
-        });
+        rvTeori.post(() -> mAdapter.notifyDataSetChanged());
         btnLihatHasil.setOnClickListener(v -> {
             if (jawabanTeoriUserDatabase.jawabanTeoriUserDAO().getTotalJawabanTeoriUser()==teoriDatabase.teoriDAO().getTotal()){
                 prefManager.simpanJawabanTeori();
@@ -207,20 +199,11 @@ public class TeoriFragment extends Fragment {
 
     private void initComponent() {
         prefManager = new PrefManager(context);
-        swipTeori = rootView.findViewById(R.id.swip_teori);
         rvTeori = rootView.findViewById(R.id.rv_teori);
         rvTeori.setLayoutManager(new LinearLayoutManager(context));
         btnLihatHasil = rootView.findViewById(R.id.btn_lihat_hasil);
         btnUlangi = rootView.findViewById(R.id.btn_ulangi);
         tvLihatHasil =rootView.findViewById(R.id.tv_lihat_hasil);
-        swipTeori.setOnRefreshListener(() -> {
-            onAttach(context);
-            if (teoriDatabase.teoriDAO().getTotal()!=0){
-                loadDatabaseData();
-            }else{
-                getDataFromApi();
-            }
-        });
     }
 
 }
