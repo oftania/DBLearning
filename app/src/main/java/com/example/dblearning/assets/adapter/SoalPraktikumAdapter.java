@@ -68,9 +68,7 @@ public class SoalPraktikumAdapter extends RecyclerView.Adapter<SoalPraktikumAdap
             holder.tvBtnCheck.setText("Lihat");
             holder.edtJawaban.setText(data.getJawabanUser());
             holder.edtJawaban.setEnabled(false);
-            holder.btnCheck.setOnClickListener(v -> {
-                showPopUpHasil(data.getIdPraktikum(),holder.edtJawaban.getText().toString(),false);
-            });
+            holder.btnCheck.setOnClickListener(v -> showPopUpHasil(data.getIdPraktikum(),holder.edtJawaban.getText().toString(),false));
         }
 
     }
@@ -115,9 +113,7 @@ public class SoalPraktikumAdapter extends RecyclerView.Adapter<SoalPraktikumAdap
             edtJawabanBenar.setText(data.getJawaban());
             edtJawabanSalah.setText(jawabanUser);
         }
-        dialog.setOnDismissListener(dialog1 -> {
-            praktikumFragment.loadData();
-        });
+        dialog.setOnDismissListener(dialog1 -> praktikumFragment.loadData());
         dialog.show();
     }
 
