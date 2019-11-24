@@ -7,8 +7,8 @@ public class AppData {
 
     public static final int DATABASE_VERSION = 2;
 
-    public static final String TOTAL_TEORI = "3";
-    public static final String TOTAL_PRAKTIKUM = "3";
+    public static final String TOTAL_TEORI = "5";
+    public static final String TOTAL_PRAKTIKUM = "5";
 
     public static final String DATABASE_TEORI = "database_teori";
     public static final String DATAVASE_PRAKTIKUM = "database_praktikum";
